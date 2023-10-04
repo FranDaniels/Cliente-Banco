@@ -44,6 +44,33 @@ nombre.addEventListener('change', function (event) {
     }
 
 })
+primerApellido.addEventListener('change', function (event) {
+
+    var mensaje=document.getElementById('msgPApellido')
+
+    var test =expReguLetras.test(primerApellido.value)
+
+    if(test){
+    var array = primerApellido.value.split('')
+
+    if (!validarTam(3,20, array.length)) {
+
+            mensaje.textContent = 'Tamaño incorrecto (3-20)'
+            mensaje.style.color='red'
+
+        } else {
+
+            mensaje.textContent = ''
+            mensaje.style.color = ''
+        }
+    } else {
+
+        mensaje.textContent = 'Solo se pueden introducir letras(A-Z)'
+        mensaje.style.color = 'red'
+
+    }
+
+})
 
 function validarTam(minimo,maximo, tamCadena) {
    var valido=true 
