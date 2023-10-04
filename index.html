@@ -8,9 +8,11 @@
     <link rel="stylesheet" type="text/css" href="estilos.css" />
 </head>
 
-<body>
+<body class="cabecera">
+    <div>
+
+    </div>
     <div id="menu">
-        <h1>BancoPuertollano</h1>
         <ul>
             <li><a href="index.html">Inicio</a></li>
             <li><a href="infoCuenta.html">Información Cuenta</a></li>
@@ -20,37 +22,40 @@
     <div class="campo">
         <ul>
            <li> <h3>Nombre: </h3></li> 
-            <li><input type="text" class="inpNombre" value="Francisco"></li>
+            <li><input type="text" id="inpNombre" value="Francisco"></li>
+            <li><p id="msgNombre"></p></li>
         </ul>
     </div>
     <div class="campo">
         <ul>
            <li> <h3>Primer Apellido: </h3></li> 
-            <li><input type="text" class="inpPApellido" value="Alia"></li>
+            <li><input type="text" id="inpPApellido" value="Alia"></li>
+            <li><p id="msgPApellido"></p></li>
         </ul>
     </div>
     <div class="campo">
         <ul>
            <li> <h3>Segundo Apellido: </h3></li> 
-            <li><input type="text" class="inpSApellido" value="Hernandez" ></li>
+            <li><input type="text" id="inpSApellido" value="Hernandez" ></li>
+            <li><p id="msgSApellido"></p></li>
         </ul>
     </div>
     <div class="campo">
         <ul>
            <li> <h3>Nacionalidad: </h3></li> 
-            <li><input type="text" class="inpNacionalidad" value="Española"></li>
+            <li><input type="text" id="inpNacionalidad" value="Española"></li>
+            <li><p id="msgNacionalidad"></p></li>
         </ul>
     </div> 
-    <input type="submit" class="enviar" value="Modificar datos">      
+    <input type="submit" id="enviar" value="Modificar datos">      
     
     </div>
     <script src="app.js">
-
-
     </script>
-    <script>
+    <!-- <script>
+        cargarCabecera('cabecera')
         cargarDatos()
-    </script>
+    </script> -->
 
 </body>
 
