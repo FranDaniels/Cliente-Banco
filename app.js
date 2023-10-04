@@ -99,6 +99,34 @@ primerApellido.addEventListener('change', function (event) {
 
 })
 
+nacionalidad.addEventListener('change', function (event) {
+
+    var mensaje=document.getElementById('msgNacionalidad')
+
+    var test =expReguLetras.test(nacionalidad.value)
+
+    if(test){
+         var array = nacionalidad.value.split('')
+
+    if (!validarTam(3,15, array.length)) {
+
+            mensaje.textContent = 'Tamaño incorrecto (3-20)'
+            mensaje.style.color='red'
+
+        } else {
+
+            mensaje.textContent = ''
+            mensaje.style.color = ''
+        }
+    } else {
+
+        mensaje.textContent = 'Solo se pueden introducir letras(A-Z)'
+        mensaje.style.color = 'red'
+
+    }
+
+})
+
 function validarTam(minimo,maximo, tamCadena) {
    var valido=true 
    if(tamCadena<minimo){
