@@ -1,6 +1,6 @@
 var nombre=document.getElementById('inpNombre')
 var primerApellido=document.getElementById('inpPApellido')
-var segundoApellido=document.getElementById('inpSAPellido')
+var segundoApellido=document.getElementById('inpSegundoApellido')
 var nacionalidad=document.getElementById('inpNacionalidad')
 
 const expReguLetras=/^[A-Za-z]+$/
@@ -52,6 +52,33 @@ primerApellido.addEventListener('change', function (event) {
 
     if(test){
     var array = primerApellido.value.split('')
+
+    if (!validarTam(3,20, array.length)) {
+
+            mensaje.textContent = 'Tamaño incorrecto (3-20)'
+            mensaje.style.color='red'
+
+        } else {
+
+            mensaje.textContent = ''
+            mensaje.style.color = ''
+        }
+    } else {
+
+        mensaje.textContent = 'Solo se pueden introducir letras(A-Z)'
+        mensaje.style.color = 'red'
+
+    }
+
+})
+    segundoApellido.addEventListener('change', function (event) {
+
+    var mensaje=document.getElementById('msgSegundoApellido')
+
+    var test =expReguLetras.test(segundoApellido.value)
+
+    if(test){
+         var array = segundoApellido.value.split('')
 
     if (!validarTam(3,20, array.length)) {
 
