@@ -19,10 +19,10 @@
     <div>
         <h2>Información de la cuenta</h2>
 
-        <output>IBAN:</output>
+        <label for="name">IBAN:</label>
         <input type="text" id="ibanInfo" disabled><br>
         <br>
-        <output>Saldo:</output>
+        <label for="name">Saldo:</label>
         <input type="text" id="saldoInfo" size="5" disabled><br>
         <br>
         <input type="text" id="saldoRetirar">
@@ -30,6 +30,9 @@
         <br>
         <input type="text" id="saldoIngresar">
         <button>Ingresar</button>
+        <div id="msg">
+
+        </div>
     </div>
     <script src="app.js"></script>
     <script>cargarDatos()</script>
