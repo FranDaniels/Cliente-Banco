@@ -2,7 +2,7 @@ var nombre=document.getElementById('inpNombre')
 var primerApellido=document.getElementById('inpPApellido')
 var segundoApellido=document.getElementById('inpSegundoApellido')
 var nacionalidad=document.getElementById('inpNacionalidad')
-
+var enviar=document.getElementById('enviar')
 const expReguLetras=/^[A-Za-z]+$/
 
 function cargarDatos(){
@@ -17,6 +17,7 @@ function cargarDatos(){
 // function cargarCabecera(dest){  
 //  document.getElementById(dest).innerHTML = '   <h1>BancoPuertollano</h1>    <ul>        <li><a href="index.html">Inicio</a></li>        <li><a href="infoCuenta.html">Informaci&#243;n Cuenta</a></li>             <li><a href="tarjetas.html">Tarjetas</a></li>    </ul>' 
 // }
+var guardado=true
 nombre.addEventListener('change', function (event) {
 
     var mensaje=document.getElementById('msgNombre')
@@ -30,17 +31,19 @@ nombre.addEventListener('change', function (event) {
 
             mensaje.textContent = 'Tamaño incorrecto (3-20)'
             mensaje.style.color='red'
+            guardado=false
 
         } else {
 
             mensaje.textContent = ''
             mensaje.style.color = ''
+            guardado=true
         }
     } else {
 
         mensaje.textContent = 'Solo se pueden introducir letras(A-Z)'
         mensaje.style.color = 'red'
-
+        guardado=false
     }
 
 })
@@ -57,17 +60,19 @@ primerApellido.addEventListener('change', function (event) {
 
             mensaje.textContent = 'Tamaño incorrecto (3-20)'
             mensaje.style.color='red'
+            guardado=false
 
         } else {
 
             mensaje.textContent = ''
             mensaje.style.color = ''
+            guardado=true
         }
     } else {
 
         mensaje.textContent = 'Solo se pueden introducir letras(A-Z)'
         mensaje.style.color = 'red'
-
+        guardado=false
     }
 
 })
@@ -84,16 +89,19 @@ primerApellido.addEventListener('change', function (event) {
 
             mensaje.textContent = 'Tamaño incorrecto (3-20)'
             mensaje.style.color='red'
+            guardado=false
 
         } else {
 
             mensaje.textContent = ''
             mensaje.style.color = ''
+            guardado=true
         }
     } else {
 
         mensaje.textContent = 'Solo se pueden introducir letras(A-Z)'
         mensaje.style.color = 'red'
+        guardado=false
 
     }
 
@@ -112,20 +120,39 @@ nacionalidad.addEventListener('change', function (event) {
 
             mensaje.textContent = 'Tamaño incorrecto (3-20)'
             mensaje.style.color='red'
-
+            guardado=false
         } else {
 
             mensaje.textContent = ''
             mensaje.style.color = ''
+            guardado=true
         }
     } else {
 
         mensaje.textContent = 'Solo se pueden introducir letras(A-Z)'
         mensaje.style.color = 'red'
-
+        guardado=false
     }
 
 })
+
+enviar.addEventListener('click', function (event) {
+    
+    var mensaje=document.getElementById('msgGuardado')
+    if(guardado){
+    
+     mensaje.textContent='Guardado correctamente'
+     mensaje.style.color='green'
+     
+    }else{
+     
+     mensaje.textContent='Ingresa los datos correctamente'
+     mensaje.style.color='red'
+    }
+}
+)
+
+
 
 function validarTam(minimo,maximo, tamCadena) {
    var valido=true 
@@ -137,3 +164,4 @@ function validarTam(minimo,maximo, tamCadena) {
    }
     return valido
 }
+
