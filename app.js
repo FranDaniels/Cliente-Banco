@@ -19,9 +19,34 @@ class banco{
     }
 
     ingresar(cantidad) {
-        this.saldo+=cantidad
-        console.log(this.saldo)
+        numero=/^[\d]+$/
+        if (numero.test(cantidad)) {
+            this.saldo+=cantidad
+            console.log(this.saldo)
+        }else{
+            console.log('Debe escribir una cantidad en números')
+        }
+    }
+
+    retirar(cantidad){
+        numero=/^[0-9]+$/
+
+        if (numero.test(cantidad)) {
+            if (this.saldo<=0){
+                console.log('La cuenta esta a 0')
+            }else if (this.saldo-cantidad<0){
+                console.log('No puedes retirar tanto dinero, tienes '+this.saldo+'€ en la cuenta')
+            }else{
+                this.saldo-=cantidad
+                console.log(this.saldo)
+            }
+        }else{
+            console.log('Debe escribir una cantidad en números')
+        }
     }
 }
+
+var cuenta= new banco('ES21 1465 0100 72 2030876293',500)
+console.log(cuenta)
 
 
