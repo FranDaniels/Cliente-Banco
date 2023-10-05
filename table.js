@@ -21,10 +21,10 @@ class Tarjeta {
   }
 
   getActiva() {
-    let rtnBool = "No"
+    let rtnBool = "No";
 
     if (this.activa) {
-      rtnBool = "Si"
+      rtnBool = "Si";
     }
 
     return rtnBool;
@@ -36,8 +36,8 @@ let c2 = new Banco("ES21 1465 0100 72 2030876293", 500);
 let c3 = new Banco("ES21 1465 0100 72 2030876293", 500);
 
 let tarjeta = new Tarjeta(" t1 ", "No");
-let t2 = new Tarjeta(" t2 ",123 ,"Si");
-let t3 = new Tarjeta(" t3 ", 123,"Si");
+let t2 = new Tarjeta(" t2 ", 123, "Si");
+let t3 = new Tarjeta(" t3 ", 123, "Si");
 
 let v = [
   [cuenta, tarjeta],
@@ -46,9 +46,8 @@ let v = [
 ];
 
 function tableCreate() {
-
-    const tbl = document.getElementById("table");
-    tbl.innerText = "" 
+  const tbl = document.getElementById("table");
+  tbl.innerText = "";
   tbl.style.width = "600px";
   tbl.style.border = "2px";
 
@@ -77,14 +76,43 @@ function tableCreate() {
 }
 
 function guardar() {
-  let nombre = document.getElementById("nombre").value;
-  let cvv = document.getElementById("cvv");
-  let check = document.getElementById("check").checked;
+  let nombre = document.getElementById("nombre").value
+  let cvv = document.getElementById("cvv").value
+  let check = document.getElementById("check").checked
 
-  let tarjeta = new Tarjeta(nombre, cvv, check);
-  let arr = [cuenta, tarjeta];
+  let message = ""
 
-  v.push(arr);
-  tableCreate();
+
+    if(checkTarjeta(nombre)){
+        if(checkCVV(cvv)){
+            let tarjeta = new Tarjeta(nombre, cvv, check);
+            let arr = [cuenta, tarjeta];
+            v.push(arr);
+            tableCreate();
+        }else if(cvv.length>3){
+            message += "<li>El CVV solo admite hasta 3 dígitos</li>"
+        }else{
+            message += "<li>El CVV está vacío</li>"
+        }
+    }else {
+        message += "<li>La tarjeta tiene un mal formato</li>"
+    }
+  
+  document.getElementById("msg").innerHTML  = `<ul>${message}</ul>`
 }
 
+function checkTarjeta(str) {
+  let cadena = /^[0-9]+$/;
+
+  let rtnBool = cadena.test(str);
+
+  return rtnBool;
+}
+
+function checkCVV(str){
+    let cadena = /^[0-9]{3}$/;
+
+    let rtnBool = cadena.test(str);
+  
+    return rtnBool;
+}
