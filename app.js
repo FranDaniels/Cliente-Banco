@@ -1,10 +1,17 @@
-var nombre=document.getElementById('inpNombre')
-var primerApellido=document.getElementById('inpPApellido')
-var segundoApellido=document.getElementById('inpSegundoApellido')
-var nacionalidad=document.getElementById('inpNacionalidad')
-var enviar=document.getElementById('enviar')
-const expReguLetras=/^[A-Za-z]+$/
 
+class Usuario{
+     nombre
+     apellido1
+     apellido2
+     nacionalidad
+
+     constructor(n,a1,a2,na){
+        this.nombre=n
+        this.apellido1=a1
+        this.apellido2=a2
+        this.nacionalidad=na
+     }
+}
 function cargarDatos(){
     /*document.getElementById('idPersona').value = persona.id
     document.getElementById('nombre').value = persona.nombre
@@ -17,7 +24,22 @@ function cargarDatos(){
 // function cargarCabecera(dest){  
 //  document.getElementById(dest).innerHTML = '   <h1>BancoPuertollano</h1>    <ul>        <li><a href="index.html">Inicio</a></li>        <li><a href="infoCuenta.html">Informaci&#243;n Cuenta</a></li>             <li><a href="tarjetas.html">Tarjetas</a></li>    </ul>' 
 // }
+var nombre=document.getElementById('inpNombre')
+var primerApellido=document.getElementById('inpPApellido')
+var segundoApellido=document.getElementById('inpSegundoApellido')
+var nacionalidad=document.getElementById('inpNacionalidad')
+var enviar=document.getElementById('enviar')
+const expReguLetras=/^[A-Za-z]+$/
 var guardado=true
+var user=new Usuario('Francisco','Alia','Hernandez','Española')
+
+nombre.value=user.nombre
+
+
+
+
+
+
 nombre.addEventListener('change', function (event) {
 
     var mensaje=document.getElementById('msgNombre')
@@ -140,7 +162,7 @@ enviar.addEventListener('click', function (event) {
     
     var mensaje=document.getElementById('msgGuardado')
     if(guardado){
-    
+     Guardar(nombre,primerApellido,segundoApellido,nacionalidad,user)
      mensaje.textContent='Guardado correctamente'
      mensaje.style.color='green'
      
@@ -165,3 +187,9 @@ function validarTam(minimo,maximo, tamCadena) {
     return valido
 }
 
+function Guardar(n,a1,a2,na,usuario){
+    usuario.nombre=n.value
+    usuario.apellido1= a1.value
+    usuario.apellido2=a2.value
+    usuario.nacionalidad=na.value
+}
