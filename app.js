@@ -22,6 +22,17 @@ class banco{
         this.saldo+=cantidad
         console.log(this.saldo)
     }
+
+    retirar(cantidad){
+            if (this.saldo<=0){
+                console.log('La cuenta esta a 0')
+            }else if (this.saldo-cantidad<0){
+                console.log('No puedes retirar tanto dinero, tienes '+this.saldo+'€ en la cuenta')
+            }else{
+                this.saldo-=cantidad
+                console.log(this.saldo)
+            }
+    }
 }
 
 
