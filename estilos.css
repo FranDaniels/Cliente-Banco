@@ -8,3 +8,9 @@
     font-weight:bold;
     font-size:13px;
 }
+ul{list-style-type: none;}
+
+
+.campo li{
+    display:inline-block;
+}
