@@ -1,4 +1,9 @@
-
+var nombre=document.getElementById('inpNombre')
+var primerApellido=document.getElementById('inpPApellido')
+var segundoApellido=document.getElementById('inpSegundoApellido')
+var nacionalidad=document.getElementById('inpNacionalidad')
+var enviar=document.getElementById('enviar')
+const expReguLetras=/^[A-Za-z]+$/
 
 function cargarDatos(){
     /*document.getElementById('idPersona').value = persona.id
@@ -9,7 +14,154 @@ function cargarDatos(){
     menu = document.getElementById('menu').innerHTML
 }
 
-function cargarCabecera(dest){  
- document.getElementById(dest).innerHTML = '   <h1>BancoPuertollano</h1>    <ul>        <li><a href="index.html">Inicio</a></li>        <li><a href="infoCuenta.html">Informaci&#243;n Cuenta</a></li>             <li><a href="tarjetas.html">Tarjetas</a></li>    </ul>' 
+// function cargarCabecera(dest){  
+//  document.getElementById(dest).innerHTML = '   <h1>BancoPuertollano</h1>    <ul>        <li><a href="index.html">Inicio</a></li>        <li><a href="infoCuenta.html">Informaci&#243;n Cuenta</a></li>             <li><a href="tarjetas.html">Tarjetas</a></li>    </ul>' 
+// }
+var guardado=true
+nombre.addEventListener('change', function (event) {
+
+    var mensaje=document.getElementById('msgNombre')
+
+    var test =expReguLetras.test(nombre.value)
+
+    if(test){
+    var array = nombre.value.split('')
+
+    if (!validarTam(3,20, array.length)) {
+
+            mensaje.textContent = 'Tamaño incorrecto (3-20)'
+            mensaje.style.color='red'
+            guardado=false
+
+        } else {
+
+            mensaje.textContent = ''
+            mensaje.style.color = ''
+            guardado=true
+        }
+    } else {
+
+        mensaje.textContent = 'Solo se pueden introducir letras(A-Z)'
+        mensaje.style.color = 'red'
+        guardado=false
+    }
+
+})
+primerApellido.addEventListener('change', function (event) {
+
+    var mensaje=document.getElementById('msgPApellido')
+
+    var test =expReguLetras.test(primerApellido.value)
+
+    if(test){
+    var array = primerApellido.value.split('')
+
+    if (!validarTam(3,20, array.length)) {
+
+            mensaje.textContent = 'Tamaño incorrecto (3-20)'
+            mensaje.style.color='red'
+            guardado=false
+
+        } else {
+
+            mensaje.textContent = ''
+            mensaje.style.color = ''
+            guardado=true
+        }
+    } else {
+
+        mensaje.textContent = 'Solo se pueden introducir letras(A-Z)'
+        mensaje.style.color = 'red'
+        guardado=false
+    }
+
+})
+    segundoApellido.addEventListener('change', function (event) {
+
+    var mensaje=document.getElementById('msgSegundoApellido')
+
+    var test =expReguLetras.test(segundoApellido.value)
+
+    if(test){
+         var array = segundoApellido.value.split('')
+
+    if (!validarTam(3,20, array.length)) {
+
+            mensaje.textContent = 'Tamaño incorrecto (3-20)'
+            mensaje.style.color='red'
+            guardado=false
+
+        } else {
+
+            mensaje.textContent = ''
+            mensaje.style.color = ''
+            guardado=true
+        }
+    } else {
+
+        mensaje.textContent = 'Solo se pueden introducir letras(A-Z)'
+        mensaje.style.color = 'red'
+        guardado=false
+
+    }
+
+})
+
+nacionalidad.addEventListener('change', function (event) {
+
+    var mensaje=document.getElementById('msgNacionalidad')
+
+    var test =expReguLetras.test(nacionalidad.value)
+
+    if(test){
+         var array = nacionalidad.value.split('')
+
+    if (!validarTam(3,15, array.length)) {
+
+            mensaje.textContent = 'Tamaño incorrecto (3-20)'
+            mensaje.style.color='red'
+            guardado=false
+        } else {
+
+            mensaje.textContent = ''
+            mensaje.style.color = ''
+            guardado=true
+        }
+    } else {
+
+        mensaje.textContent = 'Solo se pueden introducir letras(A-Z)'
+        mensaje.style.color = 'red'
+        guardado=false
+    }
+
+})
+
+enviar.addEventListener('click', function (event) {
+    
+    var mensaje=document.getElementById('msgGuardado')
+    if(guardado){
+    
+     mensaje.textContent='Guardado correctamente'
+     mensaje.style.color='green'
+     
+    }else{
+     
+     mensaje.textContent='Ingresa los datos correctamente'
+     mensaje.style.color='red'
+    }
+}
+)
+
+
+
+function validarTam(minimo,maximo, tamCadena) {
+   var valido=true 
+   if(tamCadena<minimo){
+    valido=false
+   }
+   if(tamCadena>maximo){
+    valido= false
+   }
+    return valido
 }
 
