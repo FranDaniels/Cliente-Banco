@@ -38,3 +38,5 @@ console.log(cuenta)
 const botonRetirar=document.getElementById('saldoRetirar')
 const botonIngresar=document.getElementById('saldoIngresar')
 
+botonRetirar.addEventListener('click', () => cuenta.retirar('retirado'))
+botonIngresar.addEventListener('click', () => cuenta.ingresar('ingresado'))
