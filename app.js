@@ -33,15 +33,15 @@ class banco{
 
         if (numero.test(cantidad)) {
             if (this.saldo<=0){
-                console.log('La cuenta esta a 0')
+                msg.innerHTML='La cuenta esta a 0'
             }else if (this.saldo-cantidad<0){
-                console.log('No puedes retirar tanto dinero, tienes '+this.saldo+'€ en la cuenta')
+                msg.innerHTML('No puedes retirar tanto dinero, tienes '+this.saldo+'€ en la cuenta')
             }else{
                 this.saldo-=cantidad
-                console.log(this.saldo)
+                msg.innerHTML='Se ha retirado correctamente el dinero'
             }
         }else{
-            console.log('Debe escribir una cantidad en números')
+            msg.innerHTML='Desbes escribir una cantidad en números'
         }
     }
 }
