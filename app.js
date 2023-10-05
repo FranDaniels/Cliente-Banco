@@ -1,5 +1,4 @@
 
-
 function cargarDatos(){
     /*document.getElementById('idPersona').value = persona.id
     document.getElementById('nombre').value = persona.nombre
@@ -12,4 +11,17 @@ function cargarDatos(){
 function cargarCabecera(dest){  
  document.getElementById(dest).innerHTML = '   <h1>BancoPuertollano</h1>    <ul>        <li><a href="index.html">Inicio</a></li>        <li><a href="infoCuenta.html">Informaci&#243;n Cuenta</a></li>             <li><a href="tarjetas.html">Tarjetas</a></li>    </ul>' 
 }
+//Los consolelog se borran
+class banco{
+    constructor(iban,saldo){
+        this.iban=iban
+        this.saldo=saldo
+    }
+
+    ingresar(cantidad) {
+        this.saldo+=cantidad
+        console.log(this.saldo)
+    }
+}
+
 
