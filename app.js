@@ -44,17 +44,9 @@ class banco{
             console.log('Debe escribir una cantidad en números')
         }
     }
-
-    retirar(cantidad){
-            if (this.saldo<=0){
-                console.log('La cuenta esta a 0')
-            }else if (this.saldo-cantidad<0){
-                console.log('No puedes retirar tanto dinero, tienes '+this.saldo+'€ en la cuenta')
-            }else{
-                this.saldo-=cantidad
-                console.log(this.saldo)
-            }
-    }
 }
+
+var cuenta= new banco('ES21 1465 0100 72 2030876293',500)
+console.log(cuenta)
 
 
