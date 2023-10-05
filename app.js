@@ -12,6 +12,7 @@ class Usuario{
         this.nacionalidad=na
      }
 }
+
 function cargarDatos(){
     /*document.getElementById('idPersona').value = persona.id
     document.getElementById('nombre').value = persona.nombre
@@ -31,10 +32,18 @@ var nacionalidad=document.getElementById('inpNacionalidad')
 var enviar=document.getElementById('enviar')
 const expReguLetras=/^[A-Za-z]+$/
 var guardado=true
-var user=new Usuario('Francisco','Alia','Hernandez','Española')
 
+var data=localStorage.getItem('user')
+if(data!=null){
+    var user=JSON.parse(data)
+
+}else{
+    var user=new Usuario('Francisco','Alia','Hernandez','Española')
+}
 nombre.value=user.nombre
-
+primerApellido.value=user.apellido1
+segundoApellido.value=user.apellido2
+nacionalidad.value=user.nacionalidad
 
 
 
@@ -163,6 +172,7 @@ enviar.addEventListener('click', function (event) {
     var mensaje=document.getElementById('msgGuardado')
     if(guardado){
      Guardar(nombre,primerApellido,segundoApellido,nacionalidad,user)
+     establecerUsuario(user)
      mensaje.textContent='Guardado correctamente'
      mensaje.style.color='green'
      
@@ -192,4 +202,9 @@ function Guardar(n,a1,a2,na,usuario){
     usuario.apellido1= a1.value
     usuario.apellido2=a2.value
     usuario.nacionalidad=na.value
+}
+
+function establecerUsuario(user){
+    var u=JSON.stringify(user)
+    localStorage.setItem('user',u)
 }
