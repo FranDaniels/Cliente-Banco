@@ -42,13 +42,19 @@ class banco{
 var cuenta= new banco('ES21 1465 0100 72 2030876293',500)
 console.log(cuenta)
 
+document.getElementById('ibanInfo').value=cuenta.iban
+document.getElementById('saldoInfo').value=cuenta.saldo
+
 const botonRetirar=document.getElementById('saldoRetirar')
 const botonIngresar=document.getElementById('saldoIngresar')
+
+
 
 botonRetirar.addEventListener('click', function(event){
     const retiradoInput = document.getElementById('retirado')
     const cantidadRetirar = Number(retiradoInput.value)
     cuenta.retirar(cantidadRetirar)
+    document.getElementById('saldoInfo').value=cuenta.saldo
 
 })
 
@@ -56,8 +62,10 @@ botonIngresar.addEventListener('click',function(event){
     const ingresadoInput=document.getElementById('ingresado')
     const cantidadIngresar=Number(ingresadoInput.value)
     cuenta.ingresar(cantidadIngresar)
+    document.getElementById('saldoInfo').value=cuenta.saldo
 })
+
 
 function cargarCabecera(dest){  
     document.getElementById(dest).innerHTML = '   <h1>BancoPuertollano</h1>    <ul>        <li><a href="index.html">Inicio</a></li>        <li><a href="InfoCuenta.html">Informaci&#243;n Cuenta</a></li>             <li><a href="tarjetas.html">Tarjetas</a></li>    </ul>' 
-   }
+}
