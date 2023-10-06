@@ -57,3 +57,7 @@ botonIngresar.addEventListener('click',function(event){
     const cantidadIngresar=Number(ingresadoInput.value)
     cuenta.ingresar(cantidadIngresar)
 })
+
+function cargarCabecera(dest){  
+    document.getElementById(dest).innerHTML = '   <h1>BancoPuertollano</h1>    <ul>        <li><a href="index.html">Inicio</a></li>        <li><a href="InfoCuenta.html">Informaci&#243;n Cuenta</a></li>             <li><a href="tarjetas.html">Tarjetas</a></li>    </ul>' 
+   }
