@@ -1,0 +1,15 @@
+{
+    "cSpell.words": [
+        "tarjeta"
+    ],
+    "cSpell.ignoreWords": [
+        "IBAN",
+        "Información",
+        "Inicio",
+        "Puertollano",
+        "Retirar",
+        "Tarjetas",
+        "cargar"
+    ],
+    "liveServer.settings.port": 5534
+}
