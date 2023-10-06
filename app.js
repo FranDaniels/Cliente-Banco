@@ -33,12 +33,16 @@ const expReguLetras=/^[A-Za-z]+$/
 var guardado=true
 
 var data=localStorage.getItem('user')
+
+
 if(data!=null){
     var user=JSON.parse(data)
-
+    
 }else{
     var user=new Usuario('Francisco','Alia','Hernandez','Española')
 }
+
+
 nombre.value=user.nombre
 primerApellido.value=user.apellido1
 segundoApellido.value=user.apellido2
