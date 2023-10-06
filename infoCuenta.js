@@ -8,7 +8,7 @@ class banco{
         const numero=/^[0-9]+$/
         if (numero.test(cantidad)) {
             this.saldo+=cantidad
-            console.log(this.saldo)
+            
         }else{
             console.log('Debe escribir una cantidad en números')
         }
@@ -38,5 +38,14 @@ console.log(cuenta)
 const botonRetirar=document.getElementById('saldoRetirar')
 const botonIngresar=document.getElementById('saldoIngresar')
 
-botonRetirar.addEventListener('click', () => cuenta.retirar('retirado'))
+botonRetirar.addEventListener('click', function(event){
+
+var mensaje=document.getElementById('msg')
+mensaje.textContent('hola')
+mensaje.style.color='green'
+
+
+
+
+})
 botonIngresar.addEventListener('click', () => cuenta.ingresar('ingresado'))
