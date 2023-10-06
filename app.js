@@ -210,17 +210,17 @@ class banco{
     }
 
     ingresar(cantidad) {
-        numero=/^[\d]+$/
+        const numero=/^[0-9]+$/
         if (numero.test(cantidad)) {
             this.saldo+=cantidad
-            console.log(this.saldo)
+            
         }else{
             console.log('Debe escribir una cantidad en números')
         }
     }
 
     retirar(cantidad){
-        numero=/^[0-9]+$/
+        const numero=/^[0-9]+$/
 
         if (numero.test(cantidad)) {
             if (this.saldo<=0){
@@ -240,6 +240,20 @@ class banco{
 var cuenta= new banco('ES21 1465 0100 72 2030876293',500)
 console.log(cuenta)
 
+const botonRetirar=document.getElementById('saldoRetirar')
+const botonIngresar=document.getElementById('saldoIngresar')
+
+botonRetirar.addEventListener('click', function(event){
+
+var mensaje=document.getElementById('msg')
+mensaje.textContent('hola')
+mensaje.style.color='green'
+
+
+
+
+})
+botonIngresar.addEventListener('click', () => cuenta.ingresar('ingresado'))
 
 function establecerUsuario(user){
     var u=JSON.stringify(user)
