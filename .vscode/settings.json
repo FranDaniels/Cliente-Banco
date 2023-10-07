@@ -9,7 +9,12 @@
         "Puertollano",
         "Retirar",
         "Tarjetas",
-        "cargar"
+        "admite",
+        "cargar",
+        "cuentita",
+        "dígitos",
+        "tarjetita",
+        "vacío"
     ],
-    "liveServer.settings.port": 5534
+    "liveServer.settings.port": 5569
 }
