@@ -21,9 +21,9 @@ function cargarDatos(){
     menu = document.getElementById('menu').innerHTML
 }
 
-// function cargarCabecera(dest){  
-//  document.getElementById(dest).innerHTML = '   <h1>BancoPuertollano</h1>    <ul>        <li><a href="index.html">Inicio</a></li>        <li><a href="infoCuenta.html">Informaci&#243;n Cuenta</a></li>             <li><a href="tarjetas.html">Tarjetas</a></li>    </ul>' 
-// }
+function cargarCabecera(dest){  
+ document.getElementById(dest).innerHTML = '   <h1>BancoPuertollano</h1>    <ul>        <li><a href="index.html">Inicio</a></li>        <li><a href="InfoCuenta.html">Informaci&#243;n Cuenta</a></li>             <li><a href="tarjetas.html">Tarjetas</a></li>    </ul>' 
+}
 var nombre=document.getElementById('inpNombre')
 var primerApellido=document.getElementById('inpPApellido')
 var segundoApellido=document.getElementById('inpSegundoApellido')
@@ -33,12 +33,16 @@ const expReguLetras=/^[A-Za-zñÑ]+$/
 var guardado=true
 
 var data=localStorage.getItem('user')
+
+
 if(data!=null){
     var user=JSON.parse(data)
-
+    
 }else{
     var user=new Usuario('Francisco','Alia','Hernandez','Española')
 }
+
+
 nombre.value=user.nombre
 primerApellido.value=user.apellido1
 segundoApellido.value=user.apellido2
@@ -202,44 +206,6 @@ function Guardar(n,a1,a2,na,usuario){
     usuario.apellido2=a2.value
     usuario.nacionalidad=na.value
 }
-//Los consolelog se borran
-class banco{
-    constructor(iban,saldo){
-        this.iban=iban
-        this.saldo=saldo
-    }
-
-    ingresar(cantidad) {
-        numero=/^[\d]+$/
-        if (numero.test(cantidad)) {
-            this.saldo+=cantidad
-            console.log(this.saldo)
-        }else{
-            console.log('Debe escribir una cantidad en números')
-        }
-    }
-
-    retirar(cantidad){
-        numero=/^[0-9]+$/
-
-        if (numero.test(cantidad)) {
-            if (this.saldo<=0){
-                msg.innerHTML='La cuenta esta a 0'
-            }else if (this.saldo-cantidad<0){
-                msg.innerHTML('No puedes retirar tanto dinero, tienes '+this.saldo+'€ en la cuenta')
-            }else{
-                this.saldo-=cantidad
-                msg.innerHTML='Se ha retirado correctamente el dinero'
-            }
-        }else{
-            msg.innerHTML='Desbes escribir una cantidad en números'
-        }
-    }
-}
-
-var cuenta= new banco('ES21 1465 0100 72 2030876293',500)
-console.log(cuenta)
-
 
 function establecerUsuario(user){
     var u=JSON.stringify(user)
