@@ -29,7 +29,7 @@ var primerApellido=document.getElementById('inpPApellido')
 var segundoApellido=document.getElementById('inpSegundoApellido')
 var nacionalidad=document.getElementById('inpNacionalidad')
 var enviar=document.getElementById('enviar')
-const expReguLetras=/^[A-Za-z]+$/
+const expReguLetras=/^[A-Za-zñÑ]+$/
 var guardado=true
 
 var data=localStorage.getItem('user')

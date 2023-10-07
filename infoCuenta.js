@@ -1,4 +1,4 @@
-class banco{
+class Banco{
     constructor(iban,saldo){
         this.iban=iban
         this.saldo=saldo
@@ -34,7 +34,7 @@ class banco{
 
 
 
-var cuenta= new banco('ES21 1465 0100 72 2030876293',500)
+var cuenta= new Banco('ES21 1465 0100 72 2030876293',500)
 console.log(cuenta)
 
 const botonRetirar=document.getElementById('saldoRetirar')
