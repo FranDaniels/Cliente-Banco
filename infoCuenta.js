@@ -44,10 +44,10 @@ class Banco{
 var data=localStorage.getItem('cuenta')
 if(data!=null){
     var c=JSON.parse(data)
-    var cuenta=new banco(c.iban,c.saldo)
+    var cuenta=new Banco(c.iban,c.saldo)
 }else{
   
-    var cuenta= new banco('ES21 1465 0100 72 2030876293',500)
+    var cuenta= new Banco('ES21 1465 0100 72 2030876293',500)
 }
 
 
