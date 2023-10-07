@@ -3,8 +3,18 @@
     padding-left:3px;
     padding-right:3px;
 }
-#menu {
+#menu{
     font-family:Arial;
     font-weight:bold;
     font-size:13px;
+}
+ul{list-style-type: none;}
+
+
+.campo li{
+    display:inline-block;
+}
+
+.form-tarjeta input{
+    margin: 7px;
 }
