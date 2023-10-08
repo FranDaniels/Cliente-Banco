@@ -52,9 +52,9 @@ let cuenta = new Banco("ES21 1465 0100 72 2030876293", 500);
 let c2 = new Banco("ES21 1465 0100 72 2030876293", 500);
 let c3 = new Banco("ES21 1465 0100 72 2030876293", 500);
 
-let tarjeta = new Tarjeta(" t1 ", "No");
-let t2 = new Tarjeta(" t2 ", 123, "Si");
-let t3 = new Tarjeta(" t3 ", 123, "Si");
+let tarjeta = new Tarjeta(" 1234 12345 123456 ", "No");
+let t2 = new Tarjeta(" 1234 12345 123457 ", 123, "Si");
+let t3 = new Tarjeta(" 1234 12345 123458 ", 123, "Si");
 
 cuenta.addTarjeta(tarjeta);
 cuenta.addTarjeta(t2);
@@ -91,7 +91,7 @@ function tableCreate() {
   }
 }
 
-let data = localStorage.getItem("cuenta");
+let data = localStorage.getItem("mibanco");
 
 if (data != null) {
   let parseObjCuenta = JSON.parse(data);
@@ -112,8 +112,6 @@ if (data != null) {
   let cuenta = new Banco("ES21 1465 0100 72 2030876293", 500);
   let tarjetita = new Tarjeta("test", false);
   cuenta.tarjeta.push(tarjetita);
-
-  // console.log(parseJSON)
 }
 
 function guardar() {
@@ -124,26 +122,33 @@ function guardar() {
   let check = document.getElementById("check").checked;
 
   let message = "";
-
-  if (checkTarjeta(nombre)) {
-    if (checkCVV(cvv)) {
-      let tarjeta = new Tarjeta(nombre, cvv, check);
-      cuenta.tarjeta.push(tarjeta);
-      tableCreate();
-    } else if (cvv.length > 3) {
-      message += "<li>El CVV solo admite hasta 3 dígitos</li>";
+  if(checkEmpty(nombre) && checkEmpty(cvv)){
+    if (checkTarjeta(nombre)) {
+      if (checkCVV(cvv)) {
+        let tarjeta = new Tarjeta(nombre, cvv, check);
+        cuenta.tarjeta.push(tarjeta);
+        tableCreate();
+      } else if (cvv.length > 3) {
+        message += "<li>El CVV solo admite hasta 3 dígitos</li>";
+      } else {
+        message += "<li>El CVV está vacío</li>";
+      }
     } else {
-      message += "<li>El CVV está vacío</li>";
+      message += "<li>La tarjeta no cumple con el formato pedido</li>";
+    }  
+  }else {
+    message = "<li>La tarjeta o el CVV están vacíos</li>"
+    message += "<li>Ejemplo:</li><br>";
+    message += "<li>Tarjeta: 1234 12345 123456</li>"
+    message += "<li>cvv: 123</li>"
     }
-  } else {
-    message += "<li>La tarjeta tiene un mal formato</li>";
-  }
+  
 
   document.getElementById("msg").innerHTML = `<ul>${message}</ul>`;
 
 
   let parseJSON = JSON.stringify(cuenta);
-  localStorage.setItem("cuenta", parseJSON);
+  localStorage.setItem("mibanco", parseJSON);
 
 }
 
@@ -161,6 +166,15 @@ function checkCVV(str) {
   let rtnBool = cadena.test(str);
 
   return rtnBool;
+}
+
+function checkEmpty(checkStr){
+  let check = true
+  if (checkStr.length < 1){
+    check = false
+  }
+
+  return check
 }
 
 function cargarCabecera(dest){  

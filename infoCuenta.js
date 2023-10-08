@@ -2,6 +2,7 @@ class Banco{
     constructor(iban,saldo){
         this.iban=iban
         this.saldo=saldo
+        this.tarjeta = [];
     }
 
     ingresar(cantidad) {
@@ -40,6 +41,25 @@ class Banco{
             mensaje.style.color='red'
         }
     }
+    getIban() {
+        return this.iban;
+      }
+    
+      getSaldo() {
+        return this.saldo;
+      }
+    
+      addTarjeta(tar) {
+        this.tarjeta.push(tar);
+      }
+    
+      getSizeTarjeta() {
+        let count = 0;
+        this.tarjeta.forEach((element) => {
+          count++;
+        });
+        return count;
+      }
 }
 var data=localStorage.getItem('cuenta')
 if(data!=null){

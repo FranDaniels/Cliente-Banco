@@ -3,7 +3,10 @@
         "tarjeta"
     ],
     "cSpell.ignoreWords": [
+        "Cabecera",
+        "Desbes",
         "IBAN",
+        "Informaci",
         "Información",
         "Inicio",
         "Puertollano",
@@ -13,7 +16,13 @@
         "cargar",
         "cuentita",
         "dígitos",
+        "escribir",
+        "establecer",
+        "ingresado",
+        "puedes",
+        "retirado",
         "tarjetita",
+        "tienes",
         "vacío"
     ],
     "liveServer.settings.port": 5569
